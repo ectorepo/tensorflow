@@ -75,7 +75,7 @@ Filter the results, generate XML
                 (concat "<project"
                         " name=\"" name
                         "\" path=\"" path
-                        "\" ref=\"" ref "\" remote=\"github\" />")))))
+                        "\" revision=\"" ref "\" remote=\"github\"/>")))))
   (cl-sort 'string-lessp :key 'downcase)
   (string-join "\n"))
 #+end_src
