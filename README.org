@@ -1,0 +1,82 @@
+#+title:     Ectorepo: Tensorflow
+#+author:    David Conner
+#+email:     noreply@te.xel.io
+
+A list of Tensorflow and Python ML tools.To learn how to use this Repo repo, see
+the [[https://github.com/ectorepo/ectorepo][ectorepo/ectorepo]] Repo ... repo.
+
+#+begin_src xml :tangle default.xml
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <include name="_remotes.xml"/>
+  <include name="tensorflow_core.xml"/>
+</manifest>
+#+end_src
+
+Check rates:
+
+#+begin_src emacs-lisp :results value code :exports code
+(ghub-graphql-rate-limit)
+#+end_src
+
+To avoid confirmations
+
+#+begin_src emacs-lisp
+(setq-local org-confirm-babel-evaluate nil)
+#+end_src
+
+* Core
+
+Get the core repositories. These should go into =/data/ecto/tensorflow/core=.
+
+#+name: tensorflow-repos
+#+begin_src emacs-lisp :results value code :exports code
+(ghub-graphql
+ (graphql-query ((organization
+                  :arguments ((login . "tensorflow"))
+                  (repositories
+                   :arguments ((first . 100)
+                               (orderBy . ((field . UPDATED_AT)
+                                           (direction . DESC))))
+                   (edges
+                    (node (owner login)
+                          name
+                          (defaultBranchRef prefix name)
+                          url
+                          updatedAt
+                          isArchived)))))))
+#+end_src
+
+Filter the results, generate XML
+
+#+name: tensorflow-core
+#+begin_src emacs-lisp :vars gqldata=tensorflow-repos :results value html :noweb-ref "tensorflow_core"
+(thread-first
+  (thread-last
+    (a-get* (nthcdr 0 gqldata) 'data 'organization 'repositories 'edges)
+    (mapcar (lambda (el) (a-get* el 'node)))
+    (seq-filter (lambda (el) (not (a-get* el 'isArchived))))
+    (mapcar (lambda (el)
+              (let* (;; (defaultBranchRef (a-get* 'defaultBranchRef))
+                     (path (a-get* el 'name))
+                     (ref (concat (a-get* el 'defaultBranchRef 'prefix)
+                                  (a-get* el 'defaultBranchRef 'name)))
+                     (name (string-join (list (a-get* el 'owner 'login)
+                                              (a-get* el 'name)) "/")))
+                (concat "<project"
+                        " name=\"" name
+                        "\" path=\"" path
+                        "\" ref=\"" ref "\" remote=\"github\" />")))))
+  (cl-sort 'string-lessp :key 'downcase)
+  (string-join "\n"))
+;; (apply (lambda (&rest els) (string-join els "\n")))
+#+end_src
+
+Generate =tensorflow_core.xml=
+
+#+begin_src xml :tangle tensorflow_core.xml :noweb yes
+<?xml version="1.0" encoding="utf-8"?>
+<manifest>
+  <<tensorflow-core()>>
+</manifest>
+#+end_src
