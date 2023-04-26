@@ -1,0 +1,92 @@
+;; -*- mode: emacs-lisp -*-
+
+;; This buffer is for text that is not saved, and for Lisp evaluation.
+;; To create a file, visit it with C-x C-f and enter text in its buffer.
+
+;; .allstar
+;; adanet
+;; addons
+;; agents
+;; benchmarks
+;; build
+;; cloud
+codelabs                                ;
+;; community
+;; compression
+;; custom-op
+;; data-validation
+;; datasets
+decision-forests                        ;
+;; deepmath
+docs
+docs-l10n
+dtensor-gcp-examples                    ;
+;; ecosystem
+;; embedding-projector-standalone
+;; estimator
+;; examples
+fairness-indicators
+federated                               ;
+;; fold
+;; gan
+gnn                                     ;
+;; graphics
+haskell
+hub
+;; io
+;; java
+java-models
+java-ndarray
+;; kfac
+;; lattice
+;; lingvo
+;; lucid
+;; mesh
+metadata
+mlir-hlo
+;; model-analysis
+model-card-toolkit
+;; model-optimization
+;; model-remediation
+;; models
+;; networking
+;; neural-structured-learning
+;; nmt
+;; oss-fuzz
+;; playground
+privacy
+probability                             ;
+;; profiler
+;; profiler-ui
+;; quantum
+;; ranking
+recommenders                            ;
+;; recommenders-addons
+;; runtime
+rust
+serving
+sig-tfjs                                ;
+;; similarity
+;; swift-apis
+;; tcav
+;; tensor2tensor
+;; tensorboard
+;; tensorflow
+;; tensorrt
+;; text
+;; tf-build-actions
+tfhub.dev
+;; tfjs
+;; tfjs-examples
+;; tfjs-models
+;; tfjs-website
+;; tfjs-wechat
+tflite-micro                            ;
+tflite-micro-arduino-examples           ;
+;; tflite-support
+;; tfx
+tfx-addons                              ;
+;; tfx-bsl
+;; toolchains
+;; tpu
+;; transform
