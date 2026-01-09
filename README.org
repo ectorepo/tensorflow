@@ -1,7 +1,7 @@
 #+title:     Ectorepo: Tensorflow
 #+author:    David Conner
 #+email:     noreply@te.xel.io
-#+PROPERTY: header-args+ :comments none
+#+PROPERTY: header-args+ :comments none :var enable-restclient=(setq-local restclient-enable-eval "yes")
 
 A list of Tensorflow and Python ML tools.To learn how to use this Repo repo, see
 the [[https://github.com/ectorepo/ectorepo][ectorepo/ectorepo]] Repo ... repo.
@@ -43,12 +43,13 @@ To avoid confirmations
 
 #+RESULTS: gitorg
 | tensorflow |
+
 ** Repo Sizes
 
 Clone bundle sizes
 
 #+name: fetchMetadata
-#+headers: :var gh-org="FreeCAD" :jq-args "--raw-output" :eval query :results table
+#+headers: :var gh-org="tensorflow" :jq-args "--raw-output" :eval query :results table
 #+begin_src restclient :jq "sort_by(-.size) | map([.owner.login, .name, .size, .default_branch, .archived, .updated_at])[] | @csv"
 :gh-graphql-url = https://api.github.com/graphql
 :gh-url-base = https://api.github.com
@@ -68,37 +69,41 @@ GET :gh-url-base/:gh-url-path
 
 #+call: fetchMetadata(gh-org="tensorflow")
 
-#+RESULTS:
-| tensorflow | tensorflow                     | 1169480 | master | false | 2025-03-02T20:15:41Z |
-| tensorflow | models                         |  638093 | master | false | 2025-03-02T15:17:21Z |
-| tensorflow | tfjs-core                      |  380006 | master | true  | 2025-03-01T06:10:54Z |
-| tensorflow | probability                    |  159996 | main   | false | 2025-03-02T17:06:30Z |
-| tensorflow | lucid                          |  148135 | master | true  | 2025-03-02T17:41:38Z |
-| tensorflow | tensorboard                    |  123114 | master | false | 2025-03-02T19:46:20Z |
-| tensorflow | embedding-projector-standalone |   97781 | master | false | 2025-03-01T06:14:13Z |
-| tensorflow | workshops                      |   55933 | master | true  | 2025-02-21T15:49:37Z |
-| tensorflow | tpu                            |   48168 | master | false | 2025-03-01T13:54:47Z |
-| tensorflow | rust                           |   30155 | master | false | 2025-03-02T07:50:01Z |
-| tensorflow | serving                        |   20119 | master | false | 2025-03-02T14:02:43Z |
-| tensorflow | tfjs-converter                 |   19683 | master | true  | 2025-02-21T15:50:02Z |
-| tensorflow | tensor2tensor                  |   17508 | master | true  | 2025-03-02T20:06:37Z |
-| tensorflow | haskell                        |   10161 | master | false | 2025-02-27T06:01:09Z |
-| tensorflow | minigo                         |    9958 | master | true  | 2025-02-27T12:18:59Z |
-| tensorflow | transform                      |    3805 | master | false | 2025-02-27T21:31:35Z |
-| tensorflow | deepmath                       |    3478 | master | true  | 2025-03-01T06:15:25Z |
-| tensorflow | benchmarks                     |    3203 | master | true  | 2025-03-01T05:24:04Z |
-| tensorflow | kfac                           |    1811 | master | false | 2025-02-21T15:50:03Z |
-| tensorflow | fold                           |    1605 | master | false | 2025-03-01T06:15:46Z |
-| tensorflow | lattice                        |    1591 | master | false | 2025-02-28T18:09:50Z |
-| tensorflow | profiler-ui                    |    1540 | master | false | 2024-10-11T08:34:54Z |
-| tensorflow | playground                     |    1480 | master | false | 2025-03-01T16:17:23Z |
-| tensorflow | nmt                            |    1262 | master | true  | 2025-03-01T06:10:24Z |
-| tensorflow | ecosystem                      |     804 | master | false | 2025-02-27T09:33:32Z |
-| tensorflow | skflow                         |     779 | master | true  | 2025-03-01T06:19:48Z |
-| tensorflow | metadata                       |     450 | master | false | 2025-02-27T09:30:14Z |
+#+RESULTS: fetchMetadata
+| tensorflow | tensorflow                     | 1245942 | master | false | 2026-01-09T19:26:51Z |
+| tensorflow | models                         |  658267 | master | false | 2026-01-09T17:34:08Z |
+| tensorflow | tfjs-core                      |  380006 | master | true  | 2026-01-06T04:15:16Z |
+| tensorflow | probability                    |  160145 | main   | false | 2026-01-07T03:29:14Z |
+| tensorflow | lucid                          |  148135 | master | true  | 2026-01-08T02:16:52Z |
+| tensorflow | tensorboard                    |  123554 | master | false | 2026-01-09T14:16:57Z |
+| tensorflow | embedding-projector-standalone |   97781 | master | false | 2025-11-30T08:27:44Z |
+| tensorflow | workshops                      |   55933 | master | true  | 2025-11-07T21:17:12Z |
+| tensorflow | tpu                            |   48169 | master | false | 2026-01-09T12:53:24Z |
+| tensorflow | rust                           |   30155 | master | false | 2026-01-09T11:24:37Z |
+| tensorflow | serving                        |   19906 | master | false | 2026-01-06T15:05:05Z |
+| tensorflow | tfjs-converter                 |   19683 | master | true  | 2025-12-06T17:06:55Z |
+| tensorflow | tensor2tensor                  |   17508 | master | true  | 2026-01-09T19:05:05Z |
+| tensorflow | haskell                        |   10161 | master | false | 2026-01-07T09:22:55Z |
+| tensorflow | minigo                         |    9958 | master | true  | 2025-12-31T10:16:12Z |
+| tensorflow | transform                      |    5615 | master | false | 2025-12-19T06:20:46Z |
+| tensorflow | deepmath                       |    3478 | master | true  | 2026-01-05T06:42:33Z |
+| tensorflow | benchmarks                     |    3203 | master | true  | 2026-01-06T15:24:00Z |
+| tensorflow | kfac                           |    1811 | master | false | 2026-01-04T13:46:35Z |
+| tensorflow | fold                           |    1605 | master | false | 2025-12-03T01:54:07Z |
+| tensorflow | lattice                        |    1591 | master | false | 2025-12-22T10:01:19Z |
+| tensorflow | profiler-ui                    |    1540 | master | false | 2025-08-08T10:01:09Z |
+| tensorflow | playground                     |    1508 | master | false | 2026-01-08T23:10:39Z |
+| tensorflow | nmt                            |    1262 | master | true  | 2026-01-05T09:12:12Z |
+| tensorflow | ecosystem                      |     804 | master | true  | 2025-12-26T22:06:06Z |
+| tensorflow | skflow                         |     779 | master | true  | 2025-12-11T18:37:14Z |
+| tensorflow | metadata                       |     486 | master | false | 2026-01-08T23:36:35Z |
 | tensorflow | tfrc                           |     274 | master | true  | 2025-02-21T15:50:02Z |
-| tensorflow | tensorstore                    |     161 | master | true  | 2025-02-21T15:50:01Z |
-| tensorflow | tensorboard-plugin-example     |      72 | master | true  | 2025-02-21T15:49:33Z |
+| tensorflow | tensorstore                    |     161 | master | true  | 2025-08-08T10:01:52Z |
+| tensorflow | tensorboard-plugin-example     |      72 | master | true  | 2025-06-17T07:45:26Z |
+
+#+NAME: tensorflowReposExclude
+| .github      |
+
 
 * Core
 
@@ -228,6 +233,7 @@ Filter the results, generate XML
 <project name="tensorflow/tpu" path="core/tpu" revision="refs/heads/master" remote="github"/>
 <project name="tensorflow/transform" path="core/transform" revision="refs/heads/master" remote="github"/>
 #+end_export
+
 Generate =tensorflow_core.xml=
 
 #+begin_src xml :tangle tensorflow_core.xml :noweb yes

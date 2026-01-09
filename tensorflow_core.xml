@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest>
   <project name="tensorflow/adanet" path="core/adanet" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/addons" path="core/addons" revision="refs/heads/master" remote="github"/>
@@ -6,7 +7,6 @@
   <project name="tensorflow/build" path="core/build" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/cloud" path="core/cloud" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/codelabs" path="core/codelabs" revision="refs/heads/main" remote="github"/>
-  <project name="tensorflow/community" path="core/community" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/compression" path="core/compression" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/data-validation" path="core/data-validation" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/datasets" path="core/datasets" revision="refs/heads/master" remote="github"/>
@@ -14,7 +14,6 @@
   <project name="tensorflow/docs" path="core/docs" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/docs-l10n" path="core/docs-l10n" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/dtensor-gcp-examples" path="core/dtensor-gcp-examples" revision="refs/heads/main" remote="github"/>
-  <project name="tensorflow/ecosystem" path="core/ecosystem" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/embedding-projector-standalone" path="core/embedding-projector-standalone" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/examples" path="core/examples" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/fairness-indicators" path="core/fairness-indicators" revision="refs/heads/master" remote="github"/>
@@ -42,17 +41,14 @@
   <project name="tensorflow/playground" path="core/playground" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/privacy" path="core/privacy" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/probability" path="core/probability" revision="refs/heads/main" remote="github"/>
-  <project name="tensorflow/profiler" path="core/profiler" revision="refs/heads/master" remote="github"/>
+  <project name="tensorflow/profiler-ui" path="core/profiler-ui" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/quantum" path="core/quantum" revision="refs/heads/master" remote="github"/>
-  <project name="tensorflow/ranking" path="core/ranking" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/recommenders" path="core/recommenders" revision="refs/heads/main" remote="github"/>
   <project name="tensorflow/recommenders-addons" path="core/recommenders-addons" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/runtime" path="core/runtime" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/rust" path="core/rust" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/serving" path="core/serving" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/sig-tfjs" path="core/sig-tfjs" revision="refs/heads/main" remote="github"/>
-  <project name="tensorflow/similarity" path="core/similarity" revision="refs/heads/master" remote="github"/>
-  <project name="tensorflow/swift-bindings" path="core/swift-bindings" revision="refs/heads/main" remote="github"/>
   <project name="tensorflow/tcav" path="core/tcav" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/tensorboard" path="core/tensorboard" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/tensorflow" path="core/tensorflow" revision="refs/heads/master" remote="github"/>
@@ -65,9 +61,7 @@
   <project name="tensorflow/tflite-micro" path="core/tflite-micro" revision="refs/heads/main" remote="github"/>
   <project name="tensorflow/tflite-support" path="core/tflite-support" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/tfx" path="core/tfx" revision="refs/heads/master" remote="github"/>
-  <project name="tensorflow/tfx-addons" path="core/tfx-addons" revision="refs/heads/main" remote="github"/>
   <project name="tensorflow/tfx-bsl" path="core/tfx-bsl" revision="refs/heads/master" remote="github"/>
-  <project name="tensorflow/toolchains" path="core/toolchains" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/tpu" path="core/tpu" revision="refs/heads/master" remote="github"/>
   <project name="tensorflow/transform" path="core/transform" revision="refs/heads/master" remote="github"/>
 </manifest>
